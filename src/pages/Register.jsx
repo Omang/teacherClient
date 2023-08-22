@@ -71,7 +71,6 @@ if(redirect){
            
             <option>--Select role--</option>
             <option id={'teacher'} >Teacher</option>
-            <option id={'admin'} >Admin</option>
           
            </select>
            <div className="flex flex-row justify-between">
