@@ -23,7 +23,7 @@ import DocPage from './pages/DocPage'
 import MessagePage from './pages/MessagePage'
 import Profile from './components/Profile'
 
-axios.defaults.baseURL = 'http://localhost:3000';
+axios.defaults.baseURL = 'https://theserver-vcsj.onrender.com';
 
 function App() {
   
