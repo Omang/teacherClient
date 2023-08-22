@@ -28,13 +28,13 @@ const registeruser = async(e)=>{
   e.preventDefault();
   setLoading(true)
   try{
-    const response = await axios.post('/user/register', {mobilenumber:mobile, 
+    const response = await axios.post('/user/register', {email:mobile, 
     password:password, role:role});
     console.log(response.data.message);
-    if(response.data.message === 'Registered successful'){
+    if(response.data.message === 'User created'){
        setLoading(false);
        notificationHandler({type:'success', message:'Registration Successful'});
-       setRedirect('/login');
+       setRedirect('/');
 
     }else{
        setLoading(false);
@@ -57,6 +57,7 @@ if(redirect){
   return (
     <div className=' flex items-center justify-center mt-8'>
       <div className=' border border-blue-500 rounded-2xl shadow-2xl w-[400px]'>
+        <h1>Register</h1>
         {loading ? <GridLoader color={'#7ED321'} loading={loading} size={20} /> : <form className='flex flex-col p-2' onSubmit={registeruser}>
            {error &&(
             <p className='px-5 text-sm text-red-500 font-bold'>{error}</p>
@@ -64,13 +65,13 @@ if(redirect){
            {exist &&(
             <p className='px-1 text-sm text-yellow-500 font-bold'>User exists! please login</p>
            )}
-           <input required type="number" value={mobile} onChange={e=>setMobile(e.target.value)} placeholder='Your Mobile number' className='border border-blue-500 rounded-full m-3 px-3' />
+           <input required type="email" value={mobile} onChange={e=>setMobile(e.target.value)} placeholder='Your email' className='border border-blue-500 rounded-full m-3 px-3' />
            <input required type="password" value={password} onChange={e=>setPassword(e.target.value)} placeholder='Enter password' className='border border-blue-500 rounded-full m-3 px-3' />
            <select onChange={onchangeHandler} type="text"  className='border border-blue-500 rounded-full m-3 px-3 '>
            
             <option>--Select role--</option>
-            <option id={'student'} >Student</option>
-            <option id={'public'} >Public</option>
+            <option id={'teacher'} >Teacher</option>
+            <option id={'admin'} >Admin</option>
           
            </select>
            <div className="flex flex-row justify-between">
