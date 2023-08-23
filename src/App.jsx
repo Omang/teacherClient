@@ -22,6 +22,9 @@ import PendingDocs from './pages/PendingDocs'
 import DocPage from './pages/DocPage'
 import MessagePage from './pages/MessagePage'
 import Profile from './components/Profile'
+import SchoolsPage from './pages/SchoolsPage'
+import School from './pages/School'
+
 
 axios.defaults.baseURL = 'https://theserver-vcsj.onrender.com';
 
@@ -38,8 +41,11 @@ function App() {
        <Route path='/admin/files/:id/:token/:role' element={<Files/>} />
        <Route path='/admin/files/approve/:id/:token/:role' element={<ApprovedDocs />} />
        <Route path='/admin/files/pending/:id/:token/:role' element={<PendingDocs />} />
+       <Route path='/admin/files/pending/application/:id/:token/:role/:appid' element={<DocPage />} />
        <Route path='/admin/files/messages/:id/:token/:role' element={<MessagePage />} />
        <Route path='/admin/analytics/:id/:token/:role' element={<Analytics />} />
+       <Route path='/admin/schools/:id/:token/:role' element={<SchoolsPage />} />
+       <Route path='/admin/schools/school/:id/:token/:role/:schoolid' element={<School />} />
        <Route path='/teacher/:id/:token/:role' element={<MainPage/>} />
        <Route path='/teacher/apps/:id/:token/:role' element={<TeacherApps/>} />
        <Route path='/teacher/ranks/:id/:token/:role' element={<Ranks/>} />

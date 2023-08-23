@@ -37,11 +37,12 @@ const PendingDocs = () => {
            {datx ? <>
               <div className="flex flex-col m-4 border rounded-sm p-2">
                     {datx.map(doc=>(<>
-                       <div className="border hover:bg-blue-100 m-3 flex flex-row gap-5 border-blue-500 rounded-xs">
+                       <div key={doc._id} className="border hover:bg-blue-100 m-3 flex flex-row justify-between border-blue-500 rounded-xs">
+                       <h1>Firstname: {doc.user_id.firstname}</h1>
                        <h1>Lastname: {doc.user_id.lastname}</h1>
                        <h1>License: {doc.license_type}</h1>
                        <h1>Subject: {doc.license_subject}</h1>
-                       <h1 className='bg-blue-500 text-white cursor-pointer'>View more</h1>
+                       <Link to={`/admin/files/pending/application/${id}/${token}/${role}/${doc._id}`} className='bg-blue-500 text-white cursor-pointer'>View more</Link>
                        </div>
                     </>))}
               </div>
